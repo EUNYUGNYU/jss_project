@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{jss_form.as_p}}
+        <input type="submit" value="확인">
+    </form>
+
+    글자수: <div class="counted_text"></div>
+    
+<script>
+const targetForm = document.querySelector('.jss_content_form')
+const counted_text = document.querySelector('.counted_text')
+targetForm.addEventListener('keyup', function(){
+    counted_text.innerHTML = targetForm.value.length
+})
+</script>
+</body>
+</html>
